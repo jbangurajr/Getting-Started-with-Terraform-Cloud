@@ -110,3 +110,18 @@ resource "aws_instance" "space_coyote" {
     Name = "${var.prefix}-space_coyote-instance"
   }
 }
+
+data "terraform_remote_state" "diamond_dogs_dev" {
+  backend = "remote"
+
+  config = {
+    organization = "globomantics-xyz-123"
+    workspaces = {
+      name = "diamonddogs-app-useast1-dev"
+    }
+  }
+}
+
+output "diamond_dogs_dev_url" {
+  value = "If you like this application, check out other Globomantics applications.  The Diamond Dogs have struck again - ${data.terraform_remote_state.diamond_dogs_dev.outputs.diamond_dogs_url}"
+}
