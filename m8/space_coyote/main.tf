@@ -28,7 +28,6 @@ module "networking" {
   environment   = var.environment
   address_space = "10.0.0.0/16"
   subnet_prefix = "10.0.10.0/24"
-
 }
 
 module "s3_bucket" {
