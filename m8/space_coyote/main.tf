@@ -20,12 +20,15 @@ provider "aws" {
 }
 
 module "networking" {
-  source        = "./networking"
+  source  = "app.terraform.io/globomantics-xyz-123/networking/aws"
+  version = "1.0.0"
+  # insert required variables here
   region        = var.region
   prefix        = var.prefix
   environment   = var.environment
   address_space = "10.0.0.0/16"
   subnet_prefix = "10.0.10.0/24"
+
 }
 
 module "s3_bucket" {
