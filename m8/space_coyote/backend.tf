@@ -4,7 +4,7 @@ terraform {
     organization = "globomantics-xyz-123"
 
     workspaces {
-      name = "space_coyote_dev"
+      tags = ["apps","team:spacecoyote"]
     }
   }
 }
